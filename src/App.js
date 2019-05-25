@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
+import WhatsForLunchButton from './components/whatsForLunchButton';
 
-function App() {
-  return (
+const App = () => (
     <div className="App">
-      Hello World
+      <WhatsForLunchButton/>
     </div>
   );
-}
 
 export default App;
