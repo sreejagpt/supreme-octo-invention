@@ -12,7 +12,6 @@ class RecipeList extends React.Component {
 
     componentDidMount = async () => {
         const recipesToCook = await this.props.getRecipesToCookFn();
-
         this.setState({ 
             recipesToCook,
             isFetching: false,
@@ -24,7 +23,7 @@ class RecipeList extends React.Component {
         <ol>
             {
                 this.state.recipesToCook.map((recipeToCook, idx) =>
-                    <li key={idx}>What You'll Need:</li>)
+                    <li key={recipeToCook.title}>What You'll Need:</li>)
             }
         </ol>
     );

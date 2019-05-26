@@ -1,6 +1,7 @@
 import React from 'react';
 import WhatsForLunchButton from '../components/whatsForLunchButton';
 import RecipeList from '../components/recipeList';
+import getRecipesToCook from '../utils/getRecipesToCook';
 
 class RecipeDisplayPage extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class RecipeDisplayPage extends React.Component {
     };
 
     render = () => (
-        this.state.displayRecipes ? <RecipeList getRecipesToCookFn={() => []}/> : <WhatsForLunchButton onClick={this.displayRecipes}/>
+        this.state.displayRecipes ? <RecipeList getRecipesToCookFn={getRecipesToCook}/> : <WhatsForLunchButton onClick={this.displayRecipes}/>
     );
 }   
 
