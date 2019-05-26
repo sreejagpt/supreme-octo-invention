@@ -3,8 +3,9 @@ import { shallow } from 'enzyme';
 import RecipeList from './recipeList';
 
 describe('Recipe List Component', () => {
-    it('should render loading... text on first render', () => {
-        const wrapper = shallow(<RecipeList />);
-        expect(wrapper.find('p').text()).toEqual('Loading...');
+    it('should call function to fetch data on componentDidMount', () => {
+        const mockGetRecipesToCookFn = jest.fn(() => Promise.resolve([]));
+        shallow(<RecipeList getRecipesToCookFn={mockGetRecipesToCookFn}/>);
+        expect(mockGetRecipesToCookFn).toBeCalledTimes(1);
     });
 });
