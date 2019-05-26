@@ -3,8 +3,8 @@ import { shallow } from 'enzyme';
 import RecipeList from './recipeList';
 
 describe('Recipe List Component', () => {
-    it('should render empty ordered list', () => {
+    it('should render loading... text on first render', () => {
         const wrapper = shallow(<RecipeList />);
-        expect(wrapper.find('ol')).toEqual({});
+        expect(wrapper.find('p').text()).toEqual('Loading...');
     });
 });

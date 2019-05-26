@@ -17,7 +17,7 @@ class RecipeDisplayPage extends React.Component {
     };
 
     render = () => (
-        this.state.displayRecipes ? <RecipeList /> : <WhatsForLunchButton onClick={this.displayRecipes}/>
+        this.state.displayRecipes ? <RecipeList getRecipesToCookFn={() => []}/> : <WhatsForLunchButton onClick={this.displayRecipes}/>
     );
 }
 
