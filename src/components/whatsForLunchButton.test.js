@@ -7,4 +7,12 @@ describe('Whats for lunch button component', () => {
         const wrapper = shallow(<WhatsForLunchButton/>);
         expect(wrapper.find('button').text()).toEqual("What's For Lunch?"); 
     });
+
+    it('should call on click listener from props', () => {
+        const onClickMock = jest.fn();
+        const wrapper = shallow(<WhatsForLunchButton onClick={onClickMock} />);
+        expect(onClickMock).not.toHaveBeenCalled();
+        wrapper.find('button').simulate('click');
+        expect(onClickMock).toHaveBeenCalled();
+    });
 });

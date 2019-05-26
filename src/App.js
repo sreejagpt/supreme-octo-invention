@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import WhatsForLunchButton from './components/whatsForLunchButton';
+import RecipeDisplayPage from './pages/recipeDisplayPage';
 
 const App = () => (
     <div className="App">
-      <WhatsForLunchButton/>
+      <RecipeDisplayPage/>
     </div>
   );
 
