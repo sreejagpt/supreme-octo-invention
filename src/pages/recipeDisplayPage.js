@@ -1,5 +1,6 @@
 import React from 'react';
 import WhatsForLunchButton from '../components/whatsForLunchButton';
+import RecipeList from '../components/recipeList';
 
 class RecipeDisplayPage extends React.Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class RecipeDisplayPage extends React.Component {
     };
 
     render = () => (
-        this.state.displayRecipes ? null : <WhatsForLunchButton onClick={this.displayRecipes}/>
+        this.state.displayRecipes ? <RecipeList /> : <WhatsForLunchButton onClick={this.displayRecipes}/>
     );
 }
 
