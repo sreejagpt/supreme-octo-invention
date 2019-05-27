@@ -12,7 +12,7 @@ class RecipeList extends React.Component {
     }
 
     componentDidMount = async () => {
-        const {recipes, ingredients} = await this.props.getRecipesToCookFn();
+        const {recipes, ingredients} = await this.props.fetchRecipesAndIngredientsFn();
         this.setState({ 
             recipes,
             ingredients,
@@ -32,7 +32,7 @@ class RecipeList extends React.Component {
 }
 
 RecipeList.propTypes = {
-    getRecipesToCookFn: PropTypes.func,
+    fetchRecipesAndIngredientsFn: PropTypes.func,
 };
 
 export default RecipeList;

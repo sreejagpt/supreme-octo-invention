@@ -1,6 +1,6 @@
-import getRecipesToCook, { INGREDIENT_URL, RECIPE_URL } from "./getRecipesToCook";
+import fetchRecipesAndIngredients, { INGREDIENT_URL, RECIPE_URL } from "./fetchRecipesAndIngredients";
 
-describe('getRecipesToCook', () => {
+describe('fetchRecipesAndIngredients', () => {
     it('should fetch recipes and ingredients from expected api endpoints', async () => {
         const mockIngredientsAndRecipes = { recipes: ['some-recipe'], ingredients: ['some-ingredient']};
         const mockData = Promise.resolve(mockIngredientsAndRecipes);
@@ -8,7 +8,7 @@ describe('getRecipesToCook', () => {
           json: () => mockData,
         }));
 
-        const { recipes, ingredients } = await getRecipesToCook(mockFetchFn);
+        const { recipes, ingredients } = await fetchRecipesAndIngredients(mockFetchFn);
         expect(mockFetchFn).toHaveBeenCalledTimes(2);
         expect(mockFetchFn).toHaveBeenCalledWith(RECIPE_URL);
         expect(mockFetchFn).toHaveBeenCalledWith(INGREDIENT_URL);
