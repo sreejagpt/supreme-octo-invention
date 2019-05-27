@@ -5,15 +5,17 @@ class RecipeList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            recipesToCook: [],
+            recipes: [],
+            ingredients: [],
             isFetching: true,
         };
     }
 
     componentDidMount = async () => {
-        const recipesToCook = await this.props.getRecipesToCookFn();
+        const {recipes, ingredients} = await this.props.getRecipesToCookFn();
         this.setState({ 
-            recipesToCook,
+            recipes,
+            ingredients,
             isFetching: false,
         });
     }
@@ -22,7 +24,7 @@ class RecipeList extends React.Component {
         this.state.isFetching ? <p>Loading...</p> :
         <ol>
             {
-                this.state.recipesToCook.map((recipeToCook, idx) =>
+                this.state.recipes.map((recipeToCook, idx) =>
                     <li key={recipeToCook.title}>What You'll Need:</li>)
             }
         </ol>
