@@ -24,7 +24,20 @@ class RecipeList extends React.Component {
                 <ol>
                     {
                         (this.state.recipesToCook || []).map((recipe) =>
-                            <li key={recipe.title}><h1>{recipe.title}</h1></li>)
+                            <li key={recipe.title}>
+                                <h1>{recipe.title}</h1>
+                                <h2>What you'll need:</h2>
+                                <br />
+                                <ul>
+                                    {
+                                        (recipe.ingredients || []).map(
+                                            ingredient =>
+                                                <li key={ingredient}>{ingredient}</li>
+                                        )
+                                    }
+                                </ul>
+                                <hr/>
+                            </li>)
                     }
                 </ol>
         );
