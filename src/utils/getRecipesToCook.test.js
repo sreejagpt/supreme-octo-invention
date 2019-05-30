@@ -1,5 +1,5 @@
 import moment from "moment";
-import { isWithinUseByDate } from './getRecipesToCook.js';
+import { isWithinUseByDate, isPastBestButWithinUseBy } from './getRecipesToCook.js';
 
 describe('getRecipesToCook Util Functions', () => {
     describe('Is Within Use By Date', () => {
@@ -9,7 +9,7 @@ describe('getRecipesToCook Util Functions', () => {
             [{ "title": "Old Ham", "best-before": "2019-06-04", "use-by": yesterday.format('YYYY-MM-DD') },
             { "title": "Good Ham", "best-before": "2019-05-30", "use-by": tomorrow.format('YYYY-MM-DD') },
             { "title": "Barely Good Ham", "best-before": "2019-05-30", "use-by": moment().format('YYYY-MM-DD') }]
-            it('should say old ham is NOT within use by date', () => {
+        it('should say old ham is NOT within use by date', () => {
             expect(isWithinUseByDate('Old Ham', fridgeItems)).toEqual(false);
         });
 
