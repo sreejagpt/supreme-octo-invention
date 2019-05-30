@@ -1,4 +1,4 @@
-jest.mock('./getRecipesToCook', () => ({
+jest.mock('./recipeDateUtils', () => ({
   isWithinUseByDate: () => true,
 }));
 

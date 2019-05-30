@@ -1,7 +1,7 @@
 import moment from "moment";
-import { isWithinUseByDate, isPastBestButWithinUseBy } from './getRecipesToCook.js';
+import { isWithinUseByDate, isPastBestButWithinUseBy } from './recipeDateUtils.js';
 
-describe('getRecipesToCook Util Functions', () => {
+describe('recipeDateUtils Util Functions', () => {
     describe('Is Within Use By Date', () => {
         const yesterday = moment().subtract(1, 'day');
         const tomorrow = moment().add(1, 'day');
