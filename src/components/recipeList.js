@@ -10,12 +10,6 @@ class RecipeList extends React.Component {
         };
     }
 
-    setStateAsync(state) {
-        return new Promise((resolve) => {
-            this.setState(state, resolve)
-        });
-    }
-
     async componentDidMount() {
         const { recipesToCook } = await this.props.fetchRecipesAndIngredientsFn()
         this.setState({
