@@ -5,30 +5,36 @@ class RecipeList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            recipes: [],
-            ingredients: [],
+            recipesToCook: [],
             isFetching: true,
         };
     }
 
-    componentDidMount = async () => {
-        const {recipes, ingredients} = await this.props.fetchRecipesAndIngredientsFn();
-        this.setState({ 
-            recipes,
-            ingredients,
+    setStateAsync(state) {
+        return new Promise((resolve) => {
+            this.setState(state, resolve)
+        });
+    }
+
+    async componentDidMount() {
+        const { recipesToCook } = await this.props.fetchRecipesAndIngredientsFn()
+        this.setState({
+            recipesToCook,
             isFetching: false,
         });
     }
 
-    render = () => ( 
-        this.state.isFetching ? <p>Loading...</p> :
-        <ol>
-            {
-                this.state.recipes.map((recipeToCook, idx) =>
-                    <li key={recipeToCook.title}>What You'll Need:</li>)
-            }
-        </ol>
-    );
+    render() {
+        return (
+            this.state.isFetching === true ? <p>Loading...</p> :
+                <ol>
+                    {
+                        (this.state.recipesToCook || []).map((recipe) =>
+                            <li key={recipe.title}><h1>{recipe.title}</h1></li>)
+                    }
+                </ol>
+        );
+    }
 }
 
 RecipeList.propTypes = {
