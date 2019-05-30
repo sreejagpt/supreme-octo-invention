@@ -21,8 +21,8 @@ describe('Recipe List Component', () => {
     });
 
     it('should display full recipe info when fetched', async () => {
-        const recipe1 = { title: 'Title 1', ingredients: ['ingredient 1', 'ingredient 2'] };
-        const recipe2 = { title: 'Title 2', ingredients: ['ingredient 3', 'ingredient 4'] };
+        const recipe1 = { title: 'Title 1', ingredients: [{ title: 'ingredient 1' }, { title: 'ingredient 2' }] };
+        const recipe2 = { title: 'Title 2', ingredients: [{ title: 'ingredient 3' }, { title: 'ingredient 4' }] };
         const mockFetchRecipesAndIngredientsFn = () => Promise.resolve({ recipesToCook: [recipe1, recipe2] })
         const wrapper = mount(<RecipeList fetchRecipesAndIngredientsFn={mockFetchRecipesAndIngredientsFn} />);
         await wrapper.instance().componentDidMount();

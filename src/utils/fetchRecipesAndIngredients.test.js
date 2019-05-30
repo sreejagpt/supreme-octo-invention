@@ -1,5 +1,6 @@
 jest.mock('./recipeDateUtils', () => ({
   isWithinUseByDate: () => true,
+  sortRecipesByBestBeforeDate: (usableRecipes, fridgeItems) => usableRecipes,
 }));
 
 // eslint-disable-next-line import/first

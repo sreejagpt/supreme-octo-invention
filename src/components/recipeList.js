@@ -11,7 +11,7 @@ class RecipeList extends React.Component {
     }
 
     async componentDidMount() {
-        const { recipesToCook } = await this.props.fetchRecipesAndIngredientsFn()
+        const { recipesToCook } = await this.props.fetchRecipesAndIngredientsFn();
         this.setState({
             recipesToCook,
             isFetching: false,
@@ -23,20 +23,22 @@ class RecipeList extends React.Component {
             this.state.isFetching === true ? <p>Loading...</p> :
                 <ol>
                     {
-                        (this.state.recipesToCook || []).map((recipe) =>
-                            <li key={recipe.title}>
+                        (this.state.recipesToCook || []).map((recipe, idx) =>
+                            <li key={idx}>
                                 <h1>{recipe.title}</h1>
                                 <h2>What you'll need:</h2>
                                 <br />
                                 <ul>
                                     {
                                         (recipe.ingredients || []).map(
-                                            ingredient =>
-                                                <li key={ingredient}>{ingredient}</li>
+                                            (ingredient, idx) =>
+                                                <li key={idx}>
+                                                    {ingredient.title}
+                                                </li>
                                         )
                                     }
                                 </ul>
-                                <hr/>
+                                <hr />
                             </li>)
                     }
                 </ol>
