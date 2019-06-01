@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import RecipeDisplayPage from './recipeDisplayPage';
-import WhatsForLunchButton from '../components/whatsForLunchButton';
-import RecipeList from '../components/recipeList';
+import WhatsForLunchButton from '../../components/WhatsForLunchButton/whatsForLunchButton';
+import RecipeList from '../../components/RecipeList/recipeList';
 
 describe('Recipe Display Page', () => {
     it('should render with button', () => {

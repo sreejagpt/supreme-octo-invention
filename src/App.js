@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import RecipeDisplayPage from './pages/recipeDisplayPage';
+import RecipeDisplayPage from './pages/RecipeDisplayPage/recipeDisplayPage';
 
 const App = () => (
     <div className="App">

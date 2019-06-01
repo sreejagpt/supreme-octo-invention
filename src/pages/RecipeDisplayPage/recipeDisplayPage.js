@@ -1,7 +1,7 @@
 import React from 'react';
-import WhatsForLunchButton from '../components/whatsForLunchButton';
-import RecipeList from '../components/recipeList';
-import fetchRecipesAndIngredients from '../utils/fetchRecipesAndIngredients';
+import WhatsForLunchButton from '../../components/WhatsForLunchButton/whatsForLunchButton';
+import RecipeList from '../../components/RecipeList/recipeList';
+import fetchRecipesAndIngredients from '../../utils/fetchRecipesAndIngredients';
 import styles from './recipeDisplayPage.module.css';
 
 class RecipeDisplayPage extends React.Component {
