@@ -2,6 +2,7 @@ import React from 'react';
 import WhatsForLunchButton from '../components/whatsForLunchButton';
 import RecipeList from '../components/recipeList';
 import fetchRecipesAndIngredients from '../utils/fetchRecipesAndIngredients';
+import styles from './recipeDisplayPage.module.css';
 
 class RecipeDisplayPage extends React.Component {
     constructor(props) {
@@ -18,8 +19,15 @@ class RecipeDisplayPage extends React.Component {
     };
 
     render = () => (
-        this.state.displayRecipes ? <RecipeList fetchRecipesAndIngredientsFn={fetchRecipesAndIngredients}/> : <WhatsForLunchButton onClick={this.displayRecipes}/>
+
+        <div className={styles.root}>
+            {
+                this.state.displayRecipes ?
+                    <RecipeList fetchRecipesAndIngredientsFn={fetchRecipesAndIngredients} /> :
+                    <WhatsForLunchButton onClick={this.displayRecipes} />
+            }
+        </div>
     );
-}   
+}
 
 export default RecipeDisplayPage;

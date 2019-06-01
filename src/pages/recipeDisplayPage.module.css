@@ -1,0 +1,8 @@
+.root {
+    display: inline-block;
+    height: 100%;
+    width: 35%;
+    padding: 10em;
+    margin-top: 5em;
+    border: 0.001em solid darkgrey;
+}
