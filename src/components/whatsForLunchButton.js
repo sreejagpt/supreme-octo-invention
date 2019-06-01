@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import styles from './whatsForLunchButton.module.css';
 
 const WhatsForLunchButton = ({ onClick }) => (
-    <React.Fragment className={styles.root}>
+    <div className={styles.root}>
         <button className={styles.btn} onClick={onClick}>
             What's For Lunch?
         </button>
-    </React.Fragment>
+    </div>
 );
 
 WhatsForLunchButton.propTypes = {
