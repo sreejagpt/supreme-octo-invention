@@ -1,14 +1,14 @@
 jest.mock('./recipeDateUtils', () => ({
   isWithinUseByDate: () => true,
-  sortRecipesByBestBeforeDate: (usableRecipes, fridgeItems) => usableRecipes,
+  sortRecipesByBestBeforeDate: usableRecipes => usableRecipes,
 }));
 
 // eslint-disable-next-line import/first
-import fetchRecipesAndIngredients, { INGREDIENT_URL, RECIPE_URL } from "./fetchRecipesAndIngredients";
+import fetchRecipesAndIngredients, { INGREDIENT_URL, RECIPE_URL } from './fetchRecipesAndIngredients';
 
 describe('fetchRecipesAndIngredients', () => {
   it('should fetch recipes and ingredients from expected api endpoints', async () => {
-    const someRecipe = { ingredients: [ 'some-ingredient' ]};
+    const someRecipe = { ingredients: ['some-ingredient'] };
     const mockIngredientsAndRecipes = { recipes: [someRecipe], ingredients: ['some-ingredient'] };
     const mockData = Promise.resolve(mockIngredientsAndRecipes);
     const mockFetchFn = jest.fn(() => Promise.resolve({
